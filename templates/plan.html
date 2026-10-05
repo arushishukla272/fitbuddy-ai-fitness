@@ -1,42 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head><title>Your Plan</title><meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body{font-family:Arial; background:#f0fdf4; padding:15px}
-.card{max-width:700px; margin:auto; background:white; padding:20px; border-radius:15px; box-shadow:0 5px 15px rgba(0,0,0,0.1); margin-bottom:20px}
-h2{color:#16a34a; border-bottom:2px solid #dcfce7; padding-bottom:5px}
-.tag{display:inline-block; background:#dcfce7; padding:5px 10px; border-radius:20px; margin:5px}
-li{margin:6px 0}
-</style></head>
-<body>
-<div class="card">
-<h1>Hi {{user.name}}! Your AI Plan is Ready</h1>
-<p><b>BMI:</b> {{plan.bmi}} ({{plan.bmi_category}}) | <b>Daily Calories:</b> {{plan.daily_calories}} kcal | <b>Water:</b> {{plan.water}} L</p>
-</div>
+<head><title>Your Plan</title></head>
+<body style="font-family: Arial; padding: 20px;">
+    <h1>Hi {{ user }}, Your AI Plan is Ready!</h1>
+    
+    <p><b>Name:</b> {{ name }} | <b>Gender:</b> {{ gender }} | <b>Goal:</b> {{ goal }}</p>
+    <p><b>BMI:</b> {{ bmi }} | <b>Activity:</b> {{ activity }} | <b>Diet:</b> {{ diet }} | <b>Days:</b> {{ days }}/week</p>
+    <p><b>Health:</b> {{ health }}</p>
 
-<div class="card"><h2>🥗 Diet Plan - {{plan.diet.target_calories}} kcal</h2>
-<p><b>Protein:</b> {{plan.diet.protein}}g | <b>Carbs:</b> {{plan.diet.carbs}}g | <b>Fats:</b> {{plan.diet.fats}}g</p>
-<ul>{% for meal in plan.diet.meals %}<li>{{meal}}</li>{% endfor %}</ul>
-</div>
+    <hr>
+    <h3>Your Full Plan:</h3>
+    <div style="white-space: pre-line; background: #f5f5f5; padding: 15px; border-radius: 10px;">
+        {{ plan }}
+    </div>
 
-<div class="card"><h2>💪 Workout Plan - {{plan.workout.days_per_week}} days</h2>
-<ul>{% for day, ex in plan.workout.routine.items() %}<li><b>{{day}}:</b> {{ex}}</li>{% endfor %}</ul>
-<p><b>Tip:</b> {{plan.workout.tips}}</p>
-</div>
-
-<div class="card"><h2>🧘 Wellness</h2>
-<p><b>Yoga:</b> {{plan.wellness.yoga}}</p><p><b>Sleep:</b> {{plan.wellness.sleep}}</p>
-<p><b>Stress Tips:</b></p><ul>{% for s in plan.wellness.stress_tips %}<li>{{s}}</li>{% endfor %}</ul>
-<p style="background:#fef9c3; padding:10px; border-radius:8px"><b>Health Note:</b> {{plan.wellness.health_note}}</p>
-</div>
-
-<div class="card">
-<h2>Feedback</h2>
-<form method="POST" action="/feedback">
-<input name="feedback" placeholder="Kaisa laga plan?" style="width:80%; padding:10px" required>
-<button style="padding:10px; background:#16a34a; color:white; border:none; border-radius:8px">Send</button>
-</form><br>
-<a href="/">← New Plan</a>
-</div>
+    <br>
+    <a href="/">Back to Home</a>
 </body>
 </html>

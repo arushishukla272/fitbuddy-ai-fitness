@@ -1,26 +1,39 @@
-def get_bmi(weight, height):
-    # height cm me aayegi to meter me convert
-    if height > 3:
-        height = height / 100
-    bmi = weight / (height * height)
-    return round(bmi, 2)
+def get_bmi(weight, height_cm):
+    height_m = height_cm / 100
+    return weight / (height_m * height_m)
 
-def get_plan(bmi, goal):
-    if goal == 'weight_loss':
-        diet = 'Low Carb, High Protein - 1500 calories'
-        workout = 'Cardio + HIIT 5 days/week'
-    elif goal == 'muscle_gain':
-        diet = 'High Protein, High Calorie - 2800 calories'
-        workout = 'Weight Training 6 days/week'
-    else:
-        diet = 'Balanced Diet - 2200 calories'
-        workout = 'Mix of Cardio and Strength 4 days/week'
-
+def get_plan(bmi, goal, activity="Sedentary", diet="Veg", health="None", days="5", gender="Other", age="25"):
+    
+    # BMI ke hisab se status
     if bmi < 18.5:
-        extra = ' (You are underweight, focus on muscle gain)'
-    elif bmi > 25:
-        extra = ' (You are overweight, focus on fat loss)'
+        bmi_status = "Underweight"
+    elif bmi < 25:
+        bmi_status = "Normal"
     else:
-        extra = ' (Your BMI is normal)'
+        bmi_status = "Overweight"
 
-    return {'diet': diet + extra, 'workout': workout, 'bmi_status': extra}
+    # Plan banao
+    plan_text = f"""
+    Hello! Your BMI is {round(bmi, 1)} ({bmi_status}).
+    
+    Goal: {goal}
+    Activity: {activity}
+    Diet: {diet}
+    Health Issue: {health}
+    Gender: {gender}, Age: {age}
+    Workout: {days} days/week
+
+    DIET PLAN ({diet}):
+    - Morning: Warm water + Poha / Oats
+    - Lunch: Dal, Roti, Sabzi, Curd
+    - Evening: Fruits / Green Tea
+    - Dinner: Light khana
+
+    WORKOUT PLAN ({days} days):
+    - {days} din workout, walk + bodyweight exercise
+    - Activity Level {activity} ke hisab se roz 30 min extra walk
+
+    Note: Health issue {health} ka dhyan rakha gaya hai.
+    """
+    
+    return plan_text
