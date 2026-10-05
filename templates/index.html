@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>FitBuddy - AI Fitness Coach</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{font-family:Arial; background:#f0f9ff; padding:20px}
+.card{max-width:600px; margin:auto; background:white; padding:25px; border-radius:15px; box-shadow:0 5px 15px rgba(0,0,0,0.1)}
+h1{text-align:center; color:#0ea5e9}
+input,select{width:100%; padding:10px; margin:8px 0; border:1px solid #ccc; border-radius:8px}
+button{width:100%; background:#0ea5e9; color:white; padding:12px; border:none; border-radius:8px; font-size:16px; cursor:pointer}
+button:hover{background:#0284c7}
+label{font-weight:bold; margin-top:10px; display:block}
+</style>
+</head>
+<body>
+<div class="card">
+<h1>🏋️ FitBuddy</h1>
+<p style="text-align:center">AI Powered Personal Fitness Coach</p>
+<form method="POST">
+<label>Name</label><input name="name" required>
+<label>Age</label><input type="number" name="age" required>
+<label>Height (cm)</label><input type="number" name="height" required>
+<label>Weight (kg)</label><input type="number" name="weight" required>
+<label>Gender</label>
+<select name="gender"><option>Male</option><option>Female</option><option>Other</option></select>
+<label>Goal</label>
+<select name="goal"><option>Weight Loss</option><option>Weight Gain</option><option>Muscle Gain</option><option>Stay Fit</option></select>
+<label>Activity Level</label>
+<select name="activity"><option>Sedentary</option><option>Light</option><option>Moderate</option><option>Active</option></select>
+<label>Diet Preference</label>
+<select name="diet_pref"><option>Veg</option><option>Non-Veg</option><option>Vegan</option><option>Eggetarian</option></select>
+<label>Health Issue (if any)</label><input name="health_issue" placeholder="None / Diabetes / BP etc" value="None">
+<label>Workout Days per Week</label><input type="number" name="workout_days" min="1" max="7" value="5" required>
+<button type="submit">Generate My AI Plan 🚀</button>
+</form>
+<a href="/dashboard" style="display:block; text-align:center; margin-top:15px; color:#0ea5e9;">View Dashboard</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,6 @@
+<!DOCTYPE html>
+<html><head><title>Dashboard</title><style>body{font-family:Arial; padding:20px} table{width:100%; border-collapse:collapse} th,td{border:1px solid #ccc; padding:8px; text-align:left} th{background:#0ea5e9; color:white}</style></head>
+<body><h1>FitBuddy Dashboard</h1><a href="/">← Home</a><br><br>
+<table><tr><th>ID</th><th>Name</th><th>BMI</th><th>Goal</th><th>Date</th><th>Feedback</th></tr>
+{% for u in users %}<tr><td>{{u[0]}}</td><td>{{u[1]}}</td><td>{{u[4]}}</td><td>{{u[8]}}</td><td>{{u[11]}}</td><td>{{u[12]}}</td></tr>{% endfor %}
+</table></body></html>
